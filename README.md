@@ -83,7 +83,7 @@ Study Notes Studio 是一个 Codex Skill，用来指导 AI Agent 把学习材料
 ![费曼学习法学习笔记](examples/images/v1.2.1-feynman-technique.jpg)
 
 ### 康奈尔笔记法
-![康奈尔笔记法学习笔记](examples/images/examples/images/v1.2.1-康奈尔笔记法.jpg)
+![康奈尔笔记法学习笔记](examples/images/v1.2.1-康奈尔笔记法.jpg)
 
 还适合生成批判性思维、供需关系、RAG 工作流、机器学习基础概念、读书章节复盘、课程小节总结和考试易错点等视觉笔记。
 
