@@ -1,6 +1,14 @@
 # Version
 
-Current version: v1.2.0
+Current version: v1.2.1
+
+## v1.2.1
+
+Reminder block update:
+
+- Review reminder is now a flat colored block drawn directly on the canvas by default.
+- No shadow, tape, curled corner, floating paper effect, realistic sticky note, or 3D thickness.
+- Realistic sticky notes are only allowed when explicitly requested.
 
 ## v1.2.0
 

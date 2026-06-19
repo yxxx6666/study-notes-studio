@@ -57,10 +57,10 @@ Add one small hand-drawn diagram that explains the relationship: {图解说明}.
 The diagram should occupy about 15%-25% of the page and must directly support the learning content.
 
 Review reminder:
-Add one short review reminder near the bottom or on one small sticky note: {复习提醒}.
+Add one short review reminder near the bottom inside a flat pale-yellow reminder block drawn directly on the same canvas: {复习提醒}. Do not make it a realistic sticky note. No shadow, no tape, no curled corner, no floating paper effect.
 
 Visual constraints:
-Default output is a full-bleed clean study-note canvas, not a notebook photo and not a paper sheet mockup. The entire image canvas is the note page itself. Use warm off-white or very light cream background directly as the canvas, not pure white. No visible sheet edge, no paper border, no surrounding background, no drop shadow, no desk, no mockup, no photo-realistic paper object, no open notebook, no notebook spine, no page curl, no strong shadow, no camera perspective. Separate sections mainly with whitespace, small labels, and soft hand-drawn containers. Avoid obvious vertical divider lines, rigid split-screen layout, or PPT-like module boxes. If using a sticky note, keep it flat and lightly drawn with no heavy drop shadow or realistic 3D effect. Vary the layout according to the knowledge structure; do not always use the same title-body-diagram-sticky-note arrangement. No formal bullet list markers. No dense textbook paragraphs. No PPT style. No printed worksheet. No formal table. No cute cartoon poster. No excessive stickers. No vintage yellow paper. No complex background. Leave comfortable whitespace. Keep all text readable.
+Default output is a full-bleed clean study-note canvas, not a notebook photo and not a paper sheet mockup. The entire image canvas is the note page itself. Use warm off-white or very light cream background directly as the canvas, not pure white. No visible sheet edge, no paper border, no surrounding background, no drop shadow, no desk, no mockup, no photo-realistic paper object, no open notebook, no notebook spine, no page curl, no strong shadow, no camera perspective. Separate sections mainly with whitespace, small labels, and soft hand-drawn containers. Avoid obvious vertical divider lines, rigid split-screen layout, or PPT-like module boxes. The review reminder should be a flat colored block drawn directly on the same canvas, not a realistic sticky note; no shadow, no tape, no curled corner, no floating paper effect, no 3D thickness. Vary the layout according to the knowledge structure; do not always use the same title-body-diagram-reminder arrangement. No formal bullet list markers. No dense textbook paragraphs. No PPT style. No printed worksheet. No formal table. No cute cartoon poster. No excessive stickers. No vintage yellow paper. No complex background. Leave comfortable whitespace. Keep all text readable.
 ```
 
 ## 背景模式规则
@@ -108,6 +108,34 @@ realistic presentation scene
 - 长课程 / 长文：3-5 页
 - 超过 5 页时，先问用户是否继续扩展
 
+## 提醒块规则
+
+默认把“复习提醒”做成平面提示色块，而不是实物便利贴。
+
+推荐提示词：
+
+```text
+a flat pale-yellow reminder block drawn directly on the same canvas
+no shadow
+no tape
+no curled corner
+no floating paper effect
+no realistic sticky note
+no 3D thickness
+```
+
+避免提示词：
+
+```text
+sticky note
+post-it note
+taped note
+realistic paper note
+drop shadow
+```
+
+只有用户明确要求手账、便利贴或样机氛围时，才可以使用真实便利贴。
+
 ## 版式防模板化规则
 
 每次生成前，先判断内容结构，再选择版式。
@@ -142,7 +170,7 @@ Regenerate this as a real handwritten study note, not a printed worksheet. Reduc
 ### 太花哨
 
 ```text
-Regenerate with fewer decorations. Keep only one small sticky note or tape element, remove extra stickers and large illustrations, use clean whitespace, and make the page feel like a focused study note.
+Regenerate with fewer decorations. Use only one flat pale-yellow reminder block drawn directly on the canvas, remove extra stickers, tape effects, shadows, and large illustrations, use clean whitespace, and make the page feel like a focused study note.
 ```
 
 ### 重点不明显
