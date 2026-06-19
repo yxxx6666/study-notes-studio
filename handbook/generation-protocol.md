@@ -27,7 +27,7 @@ Overall feeling:
 A beautiful but practical handwritten study note made by a top student after class. Clean, focused, useful for review. It should look like a real learning note, not a poster, not a worksheet, not a slide.
 
 Paper and writing:
-A clean flat single-page note on soft warm off-white paper with very subtle texture, like a scanned handwritten study sheet. The paper should be warm off-white, not pure blank white. No open notebook, no notebook spine, no book edge, no desk background, no page curl, no camera perspective, no strong shadow, no photorealistic mockup scene. Black gel-pen or fountain-pen handwriting. The handwriting must be neat, readable, natural, and consistent. Use Chinese handwriting if the content is Chinese.
+A full-bleed clean study-note canvas. The entire image canvas is the note page itself. Use a warm off-white or very light cream background directly as the canvas, not pure blank white. No visible paper sheet edge, no surrounding background, no drop shadow, no open notebook, no notebook spine, no book edge, no desk background, no page curl, no camera perspective, no photorealistic paper object or mockup scene. Black gel-pen or fountain-pen handwriting. The handwriting must be neat, readable, natural, and consistent. Use Chinese handwriting if the content is Chinese.
 
 Page title:
 {标题，不超过 12 个字，放在顶部，像手写标题，可加短下划线}
@@ -60,20 +60,24 @@ Review reminder:
 Add one short review reminder near the bottom or on one small sticky note: {复习提醒}.
 
 Visual constraints:
-Default output is a clean flat single-page note, not a notebook photo. Use subtle warm off-white paper texture, not pure white. Separate sections mainly with whitespace, small labels, and soft hand-drawn containers. Avoid obvious vertical divider lines, rigid split-screen layout, or PPT-like module boxes. If using a sticky note, keep it flat and lightly drawn with no heavy drop shadow or realistic 3D effect. Vary the layout according to the knowledge structure; do not always use the same title-body-diagram-sticky-note arrangement. No formal bullet list markers. No dense textbook paragraphs. No PPT style. No printed worksheet. No formal table. No cute cartoon poster. No excessive stickers. No vintage yellow paper. No complex background. No open notebook, no notebook spine, no desk, no page curl, no strong shadow, no camera perspective. Leave comfortable whitespace. Keep all text readable.
+Default output is a full-bleed clean study-note canvas, not a notebook photo and not a paper sheet mockup. The entire image canvas is the note page itself. Use warm off-white or very light cream background directly as the canvas, not pure white. No visible sheet edge, no paper border, no surrounding background, no drop shadow, no desk, no mockup, no photo-realistic paper object, no open notebook, no notebook spine, no page curl, no strong shadow, no camera perspective. Separate sections mainly with whitespace, small labels, and soft hand-drawn containers. Avoid obvious vertical divider lines, rigid split-screen layout, or PPT-like module boxes. If using a sticky note, keep it flat and lightly drawn with no heavy drop shadow or realistic 3D effect. Vary the layout according to the knowledge structure; do not always use the same title-body-diagram-sticky-note arrangement. No formal bullet list markers. No dense textbook paragraphs. No PPT style. No printed worksheet. No formal table. No cute cartoon poster. No excessive stickers. No vintage yellow paper. No complex background. Leave comfortable whitespace. Keep all text readable.
 ```
 
 ## 背景模式规则
 
-默认使用“成品笔记页模式”：
+默认使用“全画布成品笔记页模式”：
 
 ```text
-clean flat single-page note
-scanned handwritten study sheet
-soft off-white paper
+full-bleed clean study-note canvas
+the entire canvas is the note page
+warm off-white or light cream canvas background
+no visible paper sheet edge
+no surrounding background
+no drop shadow
 no notebook background
 no desk scene
 no perspective
+no paper mockup
 ```
 
 只有用户明确要求展示、宣传、样机、真实笔记本场景时，才使用“展示样机模式”：
@@ -85,7 +89,7 @@ desk background
 realistic presentation scene
 ```
 
-不要把展示样机模式作为默认输出。
+不要把展示样机模式作为默认输出。默认也不要生成“纸张放在背景上”的样机效果。
 
 ## 多页生成规则
 

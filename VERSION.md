@@ -1,6 +1,16 @@
 # Version
 
-Current version: v1.1.0
+Current version: v1.2.0
+
+## v1.2.0
+
+Full-bleed canvas update:
+
+- Default output is now a full-bleed clean study-note canvas.
+- The entire image canvas is the note page itself.
+- No visible paper sheet edge, paper border, surrounding background, or drop shadow.
+- No paper-object mockup feeling.
+- Warm off-white or very light cream canvas background remains the default.
 
 ## v1.1.0
 
