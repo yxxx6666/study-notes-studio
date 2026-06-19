@@ -64,23 +64,23 @@ Study Notes Studio 是一个 Codex Skill，用来指导 AI Agent 把学习材料
 
 ### 深度工作
 
-![深度工作学习笔记](examples/images/v1.2.1-deep-work.jpg)
+![深度工作学习笔记](examples/images/v1.2.0-deep-work.jpg)
 
 ### 主动回忆
 
-![主动回忆学习笔记](examples/images/v1.2.1-active-recall.jpg)
+![主动回忆学习笔记](examples/images/v1.1.1-active-recall.jpg)
 
 ### 番茄工作法
 
-![番茄工作法学习笔记](examples/images/v1.2.1-pomodoro.jpg)
+![番茄工作法学习笔记](examples/images/v1.1.0-pomodoro.jpg)
 
 ### 间隔重复
 
-![间隔重复学习笔记](examples/images/v1.2.1-spaced-repetition.jpg)
+![间隔重复学习笔记](examples/images/v1.0.0-spaced-repetition.jpg)
 
 ### 费曼学习法
 
-![费曼学习法学习笔记](examples/images/v1.2.1-feynman-technique.jpg)
+![费曼学习法学习笔记](examples/images/v1.0.0-feynman-technique.jpg)
 
 ### 康奈尔笔记法
 ![康奈尔笔记法学习笔记](examples/images/v1.2.1-康奈尔笔记法.jpg)
