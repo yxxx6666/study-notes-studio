@@ -16,12 +16,77 @@
 
 不要把这段规划全部输出给用户，除非用户要求看方案。
 
+
+## v1.2.2 强制比例与超时规则
+
+### 强制 3:4
+
+每次 final prompt 第一行必须包含：
+
+```text
+STRICT 3:4 VERTICAL IMAGE ONLY. Portrait canvas, 1536x2048 composition. Do not use 2:3, A4, square, landscape, or any other ratio.
+```
+
+禁止使用：
+
+```text
+A4-style
+2:3
+3:4 or 2:3
+portrait note page without exact ratio
+```
+
+如果生成结果不是 3:4，直接重试，不进入内容返修。
+
+### 单页 prompt 预算
+
+最终进入图片模型的 prompt 只写本页内容，不写全文。
+
+每页最多：
+
+- 标题 1 个
+- 核心判断 1 句
+- 短要点 3 条，必要时最多 4 条
+- 高亮词 2 个，必要时最多 3 个
+- 图解 1 个
+- 复习提醒 1 句
+
+中文总量默认 60-90 个可见汉字。
+如果上一页或当前页生成超过 180 秒，下一次重试必须降到约 60 个可见汉字。
+
+
+### 逐页反馈与单次调用边界
+
+多页任务必须逐页报告进度：
+
+```text
+第 1/5 页已完成，准备生成第 2 页。
+```
+
+每次工具调用只生成一页。禁止在同一个脚本或同一次调用中循环生成多页。
+
+### 降载重试
+
+单页超过 180 秒后，只允许降载重试一次。降载版只保留标题、一个简单图解、3 条短句和一句复习提醒。
+
+### 文字错误
+
+出现错字、重复、乱码时，不要叠加更多纠错要求。先减少文字量，再重生；必要时改为无文字底图 + 后期叠字建议。
+
+### 多页逐张生成
+
+多页任务必须先得到 `page-outline` 和 `page-prompts`，然后逐页单独生成。
+
+禁止一次性批量生成多页。
+禁止在第 2 页 prompt 中携带第 1 页完整内容。
+禁止把所有页的中文正文都放进一次生图调用。
+
 ## 单页生成提示词模板
 
 生成图像时使用下面结构。根据内容替换变量。
 
 ```text
-Create one vertical A4-style visual study notes page, 3:4 aspect ratio.
+Create one visual study notes page with STRICT vertical 3:4 aspect ratio, portrait canvas, 1536x2048 composition. Do not use 2:3, A4, square, landscape, or any other ratio.
 
 Overall feeling:
 A beautiful but practical handwritten study note made by a top student after class. Clean, focused, useful for review. It should look like a real learning note, not a poster, not a worksheet, not a slide.
@@ -96,10 +161,14 @@ realistic presentation scene
 如果需要多页：
 
 1. 先拆主题
-2. 每页一个小主题
-3. 每页版式可以变化
-4. 每页高亮词不要重复太多
-5. 最后一页可以做总结或易错提醒
+2. 先输出 page-outline 和 page-prompts
+3. 每页一个小主题
+4. 每页版式可以变化
+5. 每页高亮词不要重复太多
+6. 最后一页可以做总结或易错提醒
+7. 按顺序逐页单独生成
+8. 每次只把当前页 final prompt 发给图片模型
+9. 如果单页超过 180 秒无结果，立即按超时降级规则重试
 
 推荐页数：
 

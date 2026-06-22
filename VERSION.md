@@ -1,36 +1,23 @@
 # Version
 
-Current version: v1.2.1
+Current version: v1.2.2
+
+## v1.2.2
+
+稳定性修复版。
+
+补充 Codex 复盘发现的遗漏项：逐页报告进度、禁止脚本内循环批量生图、降载重试只做一次、文字错误先减字再重生、安装位置核验。
+
+- 默认“整理成学习笔记”生成 1 张 3:4 总览图，不再默认只输出方案。
+- 多页任务改为 page-outline → page-prompts → 逐页单独生成。
+- 禁止一次性批量生成多页，降低第二页卡住概率。
+- 新增 180 秒超时降级规则。
+- 强制 final prompt 使用严格 3:4 竖版，禁止 2:3 / A4 漂移。
+- 新增 `handbook/execution-stability.md`。
 
 ## v1.2.1
 
-Reminder block update:
-
-- Review reminder is now a flat colored block drawn directly on the canvas by default.
-- No shadow, tape, curled corner, floating paper effect, realistic sticky note, or 3D thickness.
-- Realistic sticky notes are only allowed when explicitly requested.
-
-## v1.2.0
-
-Full-bleed canvas update:
-
-- Default output is now a full-bleed clean study-note canvas.
-- The entire image canvas is the note page itself.
-- No visible paper sheet edge, paper border, surrounding background, or drop shadow.
-- No paper-object mockup feeling.
-- Warm off-white or very light cream canvas background remains the default.
-
-## v1.1.0
-
-Visual stability update:
-
-- Clean flat single-page note as default.
-- Warm off-white paper texture, not pure white.
-- Softer section separation with whitespace and labels.
-- Avoid rigid vertical dividers and PPT-like modules.
-- Flat, light sticky notes without heavy 3D shadows.
-- Layout variation based on knowledge structure.
-
-## v1.0.0
-
-Initial Study Notes Studio release.
+- 复习提醒默认改为平面提示色块。
+- 不生成真实便利贴。
+- 不生成胶带、翘角、投影、浮起效果或 3D 贴纸感。
+- 提醒块直接画在同一画布上。

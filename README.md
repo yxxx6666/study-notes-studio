@@ -10,7 +10,7 @@ Study Notes Studio 是一个 Codex Skill，用来指导 AI Agent 把学习材料
 
 它不是普通的图片 prompt，不是 PPT 信息图模板，也不是简单地把原文换成手写字体。它会先理解内容中真正值得记住的部分，再把定义、结构、流程、对比、误区和复习提醒组织成一张清爽、有重点、看完有收获的学习笔记页。
 
-默认输出是一张 **3:4 竖版全画布学习笔记图**。整张画布本身就是笔记页，不生成笔记本背景、纸张边缘、桌面、投影或样机效果。
+默认交付是一张 **严格 3:4 竖版全画布总览学习笔记图**。整张画布本身就是笔记页，不生成笔记本背景、纸张边缘、桌面、投影或样机效果。只有用户明确要求多页时，才进入逐页生成流程。
 
 > 让 AI 不只是在“整理内容”，而是在制作真正适合复习的学霸笔记。
 
@@ -29,15 +29,18 @@ Study Notes Studio 是一个 Codex Skill，用来指导 AI Agent 把学习材料
 
 默认输出：
 
-- 3:4 竖版学习笔记图
+- 1 张严格 3:4 竖版总览学习笔记图
 - 一页一个主题
 - 3-5 个核心要点
 - 2-4 个关键词高亮
+- 60-90 个可见汉字
 - 一个小图解、流程、对比或结构示意
 - 一句复习提醒
 - 最终 PNG 图片
 
-也可以先输出笔记规划，包括每页标题、内容类型、推荐版式、核心要点、高亮关键词、图解建议和复习提醒。
+如果用户明确要求多页，Skill 会先生成 `page-outline` 和 `page-prompts`，再逐页单独生图。每次工具调用只生成一页，并在页与页之间报告进度，避免后续页面卡住。
+
+也可以明确要求只输出笔记规划，包括每页标题、内容类型、推荐版式、核心要点、高亮关键词、图解建议和复习提醒。
 
 默认不输出 PPTX、PDF、Keynote、SVG、HTML、Canvas、课程讲义或长篇文字总结。
 
@@ -116,6 +119,8 @@ Copy-Item -Recurse -Force . "$HOME\.codex\skills\study-notes-studio"
 Use $study-notes-studio 把这段内容整理成一页漂亮的学习笔记。
 ```
 
+升级已有安装时，不要只保留新版 ZIP：还需要用新版 `study-notes-studio` 文件夹替换实际安装目录中的旧 Skill，例如 `$HOME/.codex/skills/study-notes-studio`。
+
 ## 怎么用
 
 ### 只做笔记规划
@@ -183,8 +188,10 @@ Use $study-notes-studio 把下面这些易错点整理成一页复习笔记。
 5. 选择最适合的笔记版式
 6. 设计一个小图解表达知识关系
 7. 写一句复习提醒
-8. 生成全画布学习笔记图
-9. 按学习价值、信息结构、视觉审美、可读性和原创感检查结果
+8. 默认生成 1 张严格 3:4 总览学习笔记图
+9. 多页任务先生成 `page-outline` 和 `page-prompts`，再逐页单独生成并报告进度
+10. 单页超时后只降载重试一次；文字出错时先减字再重生
+11. 按学习价值、信息结构、视觉审美、可读性和原创感检查结果
 
 ## 目录结构
 
@@ -193,6 +200,8 @@ study-notes-studio/
 ├── README.md
 ├── SKILL.md
 ├── VERSION.md
+├── CHANGELOG.md
+├── RELEASE_REPORT.md
 ├── LICENSE
 ├── agents/
 │   └── openai.yaml
@@ -200,6 +209,7 @@ study-notes-studio/
 │   └── images/
 └── handbook/
     ├── generation-protocol.md
+    ├── execution-stability.md
     ├── layout-recipes.md
     ├── learning-compression.md
     ├── page-grammar.md
@@ -209,7 +219,21 @@ study-notes-studio/
 
 ## 版本
 
-当前版本：**v1.2.1**
+当前版本：**v1.2.2**
+
+### v1.2.2
+
+- 修复“整理成学习笔记”默认只输出规划、不生成图片的问题
+- 修复多页生成时第二页或后续页面容易卡住的问题
+- 修复比例漂移到 2:3 / A4 的问题，强制 final prompt 使用严格 3:4 竖版
+- 默认交付改为 1 张 3:4 总览学习笔记图
+- 多页任务改为 `page-outline → page-prompts → 逐页单独生成`
+- 每次工具调用只生成一页，并逐页报告进度
+- 图上中文默认控制在 60-90 个可见汉字
+- 单页超过 180 秒后只允许降载重试一次
+- 图中文字出错时先减少文字量再重生
+- 新增 `handbook/execution-stability.md`、`CHANGELOG.md` 和 `RELEASE_REPORT.md`
+- 新增安装位置核验，升级时需替换实际安装目录中的旧 Skill
 
 ### v1.2.1
 
