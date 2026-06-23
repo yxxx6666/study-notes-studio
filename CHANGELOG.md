@@ -1,5 +1,59 @@
 # CHANGELOG
 
+## v1.4.1
+
+画面文字边界 + 出图引擎写死 + 内容前置理解版。
+
+### Added
+
+- 新增 `handbook/content-preprocessing.md`：内容前置理解与结构化协议（所有模式必跑）。
+- 新增 `handbook/image-text-boundary.md`：画面文字边界协议。
+- 新增标题—画面数量一致性校验规则。
+- `agents/openai.yaml` 增加 engine_rule / content_rule / title_count_rule / image_text_rule。
+
+### Changed
+
+- 出图引擎写死：默认且强制使用图片生成模型；仅当用户明确要求确定性 PNG / 固定像素 / 程序绘制时才允许 Pillow。
+- `handbook/rendering-engine-routing.md` 升级为 v1.4.1，新增“禁止借口切换”。
+
+### Fixed
+
+- 修复未明确指定时擅自走 Python / Pillow 程序绘制、不调用图片模型的问题。
+- 修复标题写“12 个”但画面只呈现 1–4 大类、数量对不上的问题。
+- 修复页码（1/4、2/4）与内部约束（“不要写成……”）被画进成品图的问题。
+
+## v1.4.0
+
+模式路由 + 完整性契约 + 覆盖校验版。
+
+### Added
+
+- 新增模式路由协议。
+- 新增长文配图模式说明。
+- 新增完整笔记模式说明。
+- 新增知识点覆盖矩阵。
+- 新增完整性审计报告。
+- 新增长文测试案例。
+- 新增 `handbook/mode-routing.md`。
+- 新增 `handbook/coverage-audit.md`。
+- 新增 `handbook/long-article-mode.md`。
+- 新增 `handbook/complete-notes-mode.md`。
+
+### Changed
+
+- 长文配图模式不再默认承诺完整覆盖。
+- 完整笔记模式不再受默认 5 页限制。
+- 超时降级不得直接删除知识点。
+- 最终交付必须报告覆盖状态。
+- `SKILL.md` 改为短主流程 + 路由表 + 必读协议。
+- `agents/openai.yaml` 增加完整笔记优先级触发规则。
+
+### Fixed
+
+- 修复长文配图被误认为完整笔记的问题。
+- 修复降载重试可能造成内容静默丢失的问题。
+- 修复最终报告缺少完整性证据的问题。
+
 ## v1.2.2
 
 稳定性修复版。
@@ -15,7 +69,7 @@
 - 默认交付改为 1 张 3:4 总览学习笔记图。
 - 多页任务改为先规划，再逐页单独生成。
 - 单页 final prompt 强制 3:4 竖版。
-- 图上中文默认控制在 60-90 个可见汉字。
+- 图上中文默认控制在 50-100 字。
 
 ### Added
 

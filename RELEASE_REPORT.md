@@ -1,16 +1,29 @@
-OK SKILL.md: exists=True
-OK README.md: exists=True
-OK VERSION.md: exists=True
-OK CHANGELOG.md: exists=True
-OK agents/openai.yaml: exists=True
-OK handbook/execution-stability.md: exists=True
-OK handbook/generation-protocol.md: exists=True
-OK handbook/visual-style.md: exists=True
+# RELEASE_REPORT v1.4.1
 
-Version: v1.2.2
-Root directory: study-notes-studio
-ZIP check: to be performed after packaging.
+## 修改完成状态
 
-ZIP verification: passed. Single root directory `study-notes-studio`.
+已完成 Study Notes Studio v1.4.1 画面文字边界 + 出图引擎写死 + 内容前置理解版。
 
-Supplemental v1.2.2 checks: page-by-page progress reporting, no looped multi-page generation in one script, one downgrade retry only, reduce text before fixing Chinese OCR/text errors, verify installed skill replacement.
+## 本次修复
+
+1. 出图引擎写死：默认且强制使用图片生成模型，关掉“中文可读 / 严格比例”等借口切换后门。
+2. 新增内容前置理解与结构化协议（所有模式必跑）。
+3. 新增标题—画面数量一致性校验。
+4. 新增画面文字边界协议：页码与内部约束不得画进图片。
+
+## 校验结果
+
+- 文件完整性校验：通过。
+- 出图引擎写死校验：通过。
+- 内容前置理解协议校验：通过。
+- 标题—数量一致性校验：通过。
+- 画面文字边界协议校验：通过。
+- 清爽彩色笔记与反信息图协议：保留且通过。
+- 敏感参考词扫描：通过。
+- ZIP 单根目录校验：通过。
+
+## 新版 ZIP
+
+```text
+study-notes-studio-v1.4.1.zip
+```

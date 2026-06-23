@@ -1,5 +1,65 @@
 # 笔记图生成协议
 
+
+
+
+
+
+## v1.4.0 清爽彩色手写笔记 prompt
+
+每页 final prompt 必须加入：
+
+```text
+Use a clean colorful handwritten study-note style: black pen lines as the skeleton, with restrained study-note colors such as soft yellow highlighter, pale blue section marks, light green positive highlights, soft pink/red correction marks, and muted orange arrows. Do not make it monochrome or overly minimal. Colors should look like real student note-taking tools, not a commercial infographic palette.
+```
+
+颜色只服务学习层级：关键词、路径、分区、提醒。不要满页彩色模块。
+
+## v1.4.0 反信息图漂移 prompt
+
+每页 final prompt 必须加入：
+
+```text
+Keep it as a handwritten student review note, not an infographic, not a poster, not a PPT slide, not a UI card grid. Use one core diagram and one small learning anchor motif only. Avoid many icons, many rounded cards, report-like data blocks, and commercial template feeling.
+```
+
+当内容包含研究数据、权威背书或 12 个习惯清单时，尤其要避免信息图漂移。
+
+研究内容只做边注，不做报告看板。
+
+## v1.4.0 出图方式前置判断
+
+每次生成前先判断用户是否指定出图方式：
+
+- 明确要求图片模型：使用图片模型，并在每页生成后检查比例。
+- 明确禁止 HTML：不使用 HTML，也不建议 HTML 导出。
+- 明确要求固定像素：可使用 Python / Pillow 直接绘制 PNG。
+
+如果用户要求图片模型，比例失败后先做图片模型比例重试，不擅自切换引擎。
+
+## v1.4.0 长清单拆页
+
+内容包含 8 个以上编号项时，默认先拆页。
+
+推荐：每页 3–4 个清单项。
+
+12 个习惯类文章推荐拆 4 页：
+
+1. 底层系统
+2. 时间与认知
+3. 身体与行动
+4. 关系与成长
+
+## v1.4.0 原创学习锚点图案
+
+每页 final prompt 必须包含一个轻量原创学习锚点图案：
+
+```text
+Learning anchor motif: add one small original content-linked hand-drawn learning symbol, about 6%-12% of the page, placed near the key section. It should reinforce the main learning idea without becoming a mascot, character, or main illustration. Use ordinary study objects, route symbols, memory symbols, or abstract structure symbols only. Avoid any recognizable character design, creature, mascot, IP-like figure, copied composition, or recurring character system.
+```
+
+学习锚点必须服务内容，不得影响文字可读性、图解和 3:4 稳定性。它不能是角色、吉祥物、拟人怪物或固定 IP。
+
 ## 生成前先做小规划
 
 每页生成前，先在内部确定：
@@ -120,6 +180,9 @@ Do not highlight full sentences.
 Mini diagram:
 Add one small hand-drawn diagram that explains the relationship: {图解说明}.
 The diagram should occupy about 15%-25% of the page and must directly support the learning content.
+
+Learning anchor motif:
+Add one small original content-linked hand-drawn learning symbol, about 6%-12% of the page, placed near the key section. It should reinforce the main learning idea without becoming a mascot, character, or main illustration. Use ordinary study objects, route symbols, memory symbols, or abstract structure symbols only. Avoid any recognizable character design, creature, mascot, IP-like figure, copied composition, or recurring character system.
 
 Review reminder:
 Add one short review reminder near the bottom inside a flat pale-yellow reminder block drawn directly on the same canvas: {复习提醒}. Do not make it a realistic sticky note. No shadow, no tape, no curled corner, no floating paper effect.
